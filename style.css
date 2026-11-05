@@ -867,14 +867,16 @@ h2 {
 }
 
 .video-main {
-    min-height: 452px
+    min-height: 452px;
+    height: 452px
 }
 
 .video-list {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 15px
+    gap: 15px;
+    min-height: 452px
 }
 
 .video-list video {
@@ -1129,12 +1131,21 @@ h2 {
     }
 
     .proof-card {
-        min-height: 350px;
+        min-height: 0;
         padding: 35px
     }
 
     .proof-card h3 {
-        margin-bottom: 45px
+        margin-bottom: 28px
+    }
+
+    .proof-badge {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        width: 100px;
+        height: 100px;
+        margin: 28px 0 0 auto
     }
 
     .portfolio-head {
@@ -1161,15 +1172,40 @@ h2 {
     }
 
     .video-grid {
-        grid-template-columns: 1fr
+        display: block
     }
 
     .video-main {
-        min-height: 260px
+        width: min(100%, 290px);
+        min-height: 0;
+        height: auto;
+        aspect-ratio: 9 / 16;
+        margin: 0 auto 16px
+    }
+
+    .video-list {
+        display: flex;
+        min-height: 0;
+        gap: 12px;
+        overflow-x: auto;
+        margin-right: -20px;
+        padding: 0 20px 10px 0;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: thin
     }
 
     .video-list video {
-        min-height: 145px
+        width: clamp(150px, 60vw, 220px);
+        min-height: 0;
+        height: auto;
+        flex: 0 0 clamp(150px, 60vw, 220px);
+        aspect-ratio: 9 / 16;
+        scroll-snap-align: start
+    }
+
+    .testimonial-wrap {
+        flex-direction: column;
+        gap: 36px
     }
 
     .testimonial {
@@ -1187,5 +1223,28 @@ h2 {
 
     section {
         padding: 68px 0
+    }
+}
+
+@media(max-width:520px) {
+    .wrap {
+        width: min(1120px, calc(100% - 32px))
+    }
+
+    .proof-card {
+        padding: 29px 24px
+    }
+
+    .proof-card h3 {
+        font-size: 2rem
+    }
+
+    .qualities {
+        grid-template-columns: 1fr
+    }
+
+    .video-list {
+        margin-right: -16px;
+        padding-right: 16px
     }
 }
